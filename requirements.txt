@@ -1,3 +1,4 @@
+psutil
 flask
-requests 
-prometheus_client 
+requests
+prometheus_client

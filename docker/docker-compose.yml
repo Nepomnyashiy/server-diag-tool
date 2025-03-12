@@ -1,1 +1,18 @@
-# Docker Compose файл 
+version: "3.8"
+
+services:
+  diagnostics:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: server-diag-tool
+    working_dir: /app
+    volumes:
+      - ../reports:/app/reports
+    command: ["python", "diagnostics/cpu_ram.py"]
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: "512M"
